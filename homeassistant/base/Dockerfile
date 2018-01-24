@@ -133,3 +133,12 @@ RUN apk add --no-cache \
     && pip3 install --no-cache-dir https://github.com/wayfair/pymssql/archive/v2.1.3.0.0.1.zip \
     && apk del .build-dependencies
     
+###
+## install gattlib for working BLE tracking
+pip3 download gattlib
+tar xvzf ./gattlib-0.20150805.tar.gz
+cd gattlib-0.20150805/
+sed -ie 's/boost_python-py34/boost_python-py36/' setup.py
+pip3 install .
+cd ./../
+rm -r gattlib-0.20150805
