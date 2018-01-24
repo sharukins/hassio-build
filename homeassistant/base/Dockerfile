@@ -135,9 +135,9 @@ RUN apk add --no-cache \
     
 ###
 ## install gattlib for working BLE tracking
-RUN apk add --no-cache \ 
-        boost-dev bluez-dev g++ glib-dev \
-    && apk add --no-cache python3-dev \
+RUN apk add --no-cache libc6-compat \ 
+    #    boost-dev bluez-dev g++ glib-dev \
+    #&& apk add --no-cache python3-dev \
     && pip3 download gattlib \
     && tar xvzf ./gattlib-0.20150805.tar.gz \
     && cd gattlib-0.20150805/ \
