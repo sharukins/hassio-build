@@ -135,7 +135,8 @@ RUN apk add --no-cache \
     
 ###
 ## install gattlib for working BLE tracking
-RUN pip3 download gattlib \
+RUN apk add libc6-compat
+    && pip3 download gattlib \
     && tar xvzf ./gattlib-0.20150805.tar.gz \
     && cd gattlib-0.20150805/ \
     && sed -ie 's/boost_python-py34/boost_python-py36/' setup.py \
