@@ -138,6 +138,7 @@ RUN apk add --no-cache \
 RUN apk add --no-cache --virtual .build-dependencies \
             gcc g++ glib-dev python3-dev make musl-dev bluez-dev boost-dev \ 
             python3-dev boost-thread readline-dev boost-python3\
+    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub \
     && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk \
     && apk add glibc-2.25-r0.apk \
     #    boost-dev bluez-dev g++ glib-dev \
